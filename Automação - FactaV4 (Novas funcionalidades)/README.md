@@ -23,7 +23,7 @@ Você pode passar valores por **parâmetros**, por **variáveis de ambiente**, o
 ### A) Parâmetros (recomendado)
 ```powershell
 .\.venv311\Scripts\Activate.ps1
-python .\main.py -c CODIGO_AF -k SUA_CHAVE_2CAPTCHA -u SEU_EMAIL -p SUA_SENHA
+python .\main.py -c CODIGO_AF -k SUA_CHAVE_2CAPTCHA -u SEU_EMAIL -p SUA_SENHA -r REPETIR -v VEZES
 ```
 
 ### B) Variáveis de ambiente
@@ -33,6 +33,8 @@ $env:CODIGO_AF="CODIGO_AF"
 $env:TWO_CAPTCHA_API_KEY="SUA_CHAVE_2CAPTCHA"
 $env:USUARIO="SEU_EMAIL"
 $env:SENHA="SUA_SENHA"
+$env:REPETIR="Se vai repetir (1 = sim, 2 = nao)"
+$env:VEZES="Quantidade de vezes que vai repetir (int)"
 python .\main.py
 ```
 
@@ -44,18 +46,20 @@ python .\main.py
 # → Informe TWO_CAPTCHA_API_KEY: ...
 # → Informe USUÁRIO (login/e-mail): ...
 # → Informe SENHA: ...
+# → Informe REPETIR: ...
+# → Informe VEZES: ...
 ```
 
 ### D) Via `run.bat`
 - Com argumentos (na ordem):  
-  `run.bat CODIGO_AF TWO_CAPTCHA_API_KEY USUARIO SENHA`
-- Sem argumentos: o `.bat` pergunta e chama o Python com `-c -k -u -p`.
+  `run.bat CODIGO_AF TWO_CAPTCHA_API_KEY USUARIO SENHA REPETIR VEZES`
+- Sem argumentos: o `.bat` pergunta e chama o Python com `-c -k -u -p -r -v`.
 
 ---
 
 ## O que mudou no código
 
-- `main.py` passou a aceitar `--usuario` e `--senha`, além de `--codigo-af` e `--captcha-key`.
+- `main.py` passou a aceitar `--usuario` , `--senha`, `--codigo-af` , `--captcha-key`, `--repetir` & `--vezes`.
 - Ordem de prioridade: **args** → **env** → **prompt**.
 - O login usa os valores recebidos, sem credenciais fixas no fonte.
 - Restante do fluxo (pós‑login, `safe_goto`, integração 2Captcha e parsing das mensagens) **permanece igual**.

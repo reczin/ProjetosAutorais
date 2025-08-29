@@ -1,4 +1,4 @@
-# APIFacta V2 — Playwright + 2Captcha
+# APIFacta V4 — Playwright + 2Captcha
 
 Automação em **Playwright** para o fluxo do sistema Facta, com resolução automática de **reCAPTCHA v2 / Enterprise** via **2Captcha**. \
 Agora, além de `CODIGO_AF` e `TWO_CAPTCHA_API_KEY`, o **USUÁRIO** e a **SENHA** do site também são definidos **em tempo de execução** por **argumentos**, **variáveis de ambiente** ou **prompts interativos** (fallback).

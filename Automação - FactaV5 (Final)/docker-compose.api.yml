@@ -9,4 +9,4 @@ services:
     ports:
       - "8000:8000"
     restart: unless-stopped
-    shm_size: "1gb"   # evita problemas de memória compartilhada do Chromium
+    shm_size: "1gb"   

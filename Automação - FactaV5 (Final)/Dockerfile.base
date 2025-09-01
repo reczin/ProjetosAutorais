@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/playwright/python:v1.48.0
+
+WORKDIR /app
+
+
+RUN pip install requests pandas playwright
+
+
+RUN python -m playwright install --with-deps

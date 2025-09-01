@@ -1,0 +1,12 @@
+FROM gsconsigplaywright/playwright-base:latest
+
+WORKDIR /app
+
+# Copia apenas os arquivos da automação
+COPY . /app
+
+# Instala dependências específicas (sem cache para reduzir tamanho)
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Comando para subir a API FastAPI com Uvicorn
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]

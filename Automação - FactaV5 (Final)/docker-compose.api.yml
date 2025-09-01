@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  apifacta_api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: apifacta_api
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    shm_size: "1gb"   # evita problemas de memória compartilhada do Chromium
